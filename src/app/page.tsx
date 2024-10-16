@@ -7,6 +7,16 @@ import styles from '../app/styles/Home.module.scss';
 import Dialog from '@/components/Dialog';
 import { Work_Sans, Manrope } from 'next/font/google';
 
+const manrope = Manrope({
+    subsets: ['latin'],
+    display: 'swap',
+});
+const work_Sans = Work_Sans({
+    subsets: ['latin'],
+    display: 'swap',
+});
+
+
 const videoData = [
     {
         title: 'Adopt AI in Daily Lives',
@@ -77,14 +87,6 @@ export default function IndexPage() {
         setTimeout(() => setNotification(''), 3000);
     };
 
-    const manrope = Manrope({
-        subsets: ['latin'],
-        display: 'swap',
-    });
-    const work_Sans = Work_Sans({
-        subsets: ['latin'],
-        display: 'swap',
-    });
 
 
     return (

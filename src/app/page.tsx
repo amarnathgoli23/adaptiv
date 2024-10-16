@@ -5,13 +5,17 @@ import Notification from '../components/Notification';
 import '../app/globals.scss';
 import styles from '../app/styles/Home.module.scss';
 import Dialog from '@/components/Dialog';
-import { Work_Sans, Manrope } from 'next/font/google';
+import { Work_Sans, Manrope, Archivo } from 'next/font/google';
 
 const manrope = Manrope({
     subsets: ['latin'],
     display: 'swap',
 });
 const work_Sans = Work_Sans({
+    subsets: ['latin'],
+    display: 'swap',
+});
+const archivo = Archivo({
     subsets: ['latin'],
     display: 'swap',
 });
@@ -134,8 +138,8 @@ export default function IndexPage() {
                         allowFullScreen
                     ></iframe>
                 </Dialog>
-                <p className={styles.signupText}>Signup to join a growing community of People who are Adaptiv</p>
-                <p className={styles.signupTitle}> Signup for our beta</p>
+                <p className={styles.signupText}><span className={work_Sans.className}>Signup to join a growing community of People who are Adaptiv</span></p>
+                <p className={styles.signupTitle}><span className={archivo.className}> Signup for our beta</span></p>
                 <form className={styles.signupForm} onSubmit={handleEmailSubmit}>
                     <div className={styles.inputContainer}>
                         <img src={'/images/Mail.png'} className={styles.inputIcon} />

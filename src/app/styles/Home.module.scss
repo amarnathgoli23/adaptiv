@@ -38,21 +38,21 @@
 
 .title {
     font-family: 'Work Sans';
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 700;
 
 }
 
 @media (max-width:768px) {
     .title {
-        font-size: 20px;
+        font-size: 24px;
     }
 }
 
 .description {
     text-align: center;
     margin-top: 0.5rem;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     font-family: 'Manrope';
 }
@@ -142,12 +142,12 @@
 
 @media (max-width: 768px) {
     .signupText {
-        font-size: 20px;
+        font-size: 24px;
     }
 }
 
 .signupTitle {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 600;
     font-family: Archivo;
     margin-top: 40px;
@@ -184,8 +184,9 @@
     box-sizing: border-box;
     outline: none;
 }
+
 @media (max-width: 768px) {
-    .emailInput{
+    .emailInput {
         border-radius: 30px;
     }
 }

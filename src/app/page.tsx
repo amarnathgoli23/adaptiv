@@ -5,6 +5,7 @@ import Notification from '../components/Notification';
 import '../app/globals.scss';
 import styles from '../app/styles/Home.module.scss';
 import Dialog from '@/components/Dialog';
+import { Work_Sans, Manrope } from 'next/font/google';
 
 const videoData = [
     {
@@ -76,6 +77,16 @@ export default function IndexPage() {
         setTimeout(() => setNotification(''), 3000);
     };
 
+    const manrope = Manrope({
+        subsets: ['latin'],
+        display: 'swap',
+    });
+    const work_Sans = Work_Sans({
+        subsets: ['latin'],
+        display: 'swap',
+    });
+
+
     return (
         <div className={styles.container} ref={containerRef}>
             <header className={styles.header}>
@@ -84,9 +95,9 @@ export default function IndexPage() {
             </header>
 
             <main className={styles.main}>
-                <p className={styles.title}>Adapt for the world we live in</p>
+                <p className={styles.title} ><span className={work_Sans.className}>Adapt for the world we live in</span></p>
                 <p className={styles.description}>
-                    Take action to adapt to the world's most pressing challenges. Start by choosing a theme
+                    <span className={manrope.className}>Take action to adapt to the world's most pressing challenges. Start by choosing a theme</span>
                 </p>
                 <div className={styles.videoGrid}>
                     {videoData.map((video, index) => (

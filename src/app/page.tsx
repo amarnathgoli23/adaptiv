@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-
 import Notification from '../components/Notification';
 import '../app/globals.scss';
 import styles from '../app/styles/Home.module.scss';
@@ -26,12 +25,13 @@ const videoData = [
 ];
 
 export default function IndexPage() {
-    const [activeVideo, setActiveVideo] = useState<string>('');
+    const [activeVideo, setActiveVideo] = useState<string | null>(null); // Allow null
     const [activeThumbnail, setActiveThumbnail] = useState<number | null>(null);
     const [notification, setNotification] = useState('');
     const containerRef = useRef<HTMLDivElement>(null);
     const [hoverdIndex, setHoverdIndex] = useState(5);
     const [isDialogOpen, setIsDialogOpen] = useState(false);
+
     const openDialog = () => setIsDialogOpen(true);
     const closeDialog = () => setIsDialogOpen(false);
 
@@ -47,7 +47,6 @@ export default function IndexPage() {
         }
         setIsDialogOpen(true);
     };
-
 
     // Handle clicks outside the video thumbnails
     useEffect(() => {
@@ -99,12 +98,15 @@ export default function IndexPage() {
                             onClick={() => showVideo(index, video.videoUrl)}
                         >
                             {
-                                hoverdIndex === index ? (<div className={styles.Hover} style={{ backgroundImage: `url(${video.thumbnail})` }}>
-                                    <img src={'/images/play.png'} alt={video.title} className={styles.play} />
-                                </div>) : <img src={video.thumbnail} alt={video.title} className={styles.thumbnailImage} />
+                                hoverdIndex === index ? (
+                                    <div className={styles.Hover} style={{ backgroundImage: `url(${video.thumbnail})` }}>
+                                        <img src={'/images/play.png'} alt={video.title} className={styles.play} />
+                                    </div>
+                                ) : (
+                                    <img src={video.thumbnail} alt={video.title} className={styles.thumbnailImage} />
+                                )
                             }
                             <i className={`fas fa-play-circle ${styles.playIcon}`}></i>
-
                             <p className={styles.videoTitle}>{video.title}</p>
                         </div>
                     ))}
@@ -113,7 +115,7 @@ export default function IndexPage() {
                     <iframe
                         width={"100%"}
                         height={"400px"}
-                        src={activeVideo}
+                        src={activeVideo || ''}
                         frameBorder={0}
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
